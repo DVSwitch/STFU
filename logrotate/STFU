@@ -1,0 +1,13 @@
+/var/log/dvswitch/STFU.log {
+        daily
+        rotate 7
+        maxage 7
+        dateext
+        dateformat -%Y-%m-%d
+        extension .log
+        ifempty
+        create
+	postrotate
+		systemctl reload stfu
+	endscript
+}
