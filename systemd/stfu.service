@@ -10,7 +10,7 @@ Requires=netcheck.service
 Type=simple
 Restart=on-failure
 RestartSec=3
-RestartPreventExitStatus=254
+RestartPreventExitStatus=255 254 253 251 
 StandardOutput=null
 WorkingDirectory=/opt/STFU
 Environment=STFU_LOG=/var/log/dvswitch
@@ -23,6 +23,14 @@ KillMode=process
 [Install]
 WantedBy=multi-user.target
 
-# 254 matching IDs
+# 255 server timeout
+# 254 Fatal error
 # 253 ini parse errors
-# 252 dv3000 not found, fallback not enabled
+
+# ERROR_SUCCESS               0       // ALL
+# ERROR_PORT_IN_USE           251     // STFU
+# ERROR_DV3000_NOT_FOUND      252     // AB
+# ERROR_INI_PARSE             253     // AB, MB, STFU
+# ERROR_MATCHING_IDS          254     // AB
+# ERROR_FATAL_ERROR           254     // MB, STFU
+# ERROR_SERVER_TIMEOUT        255     // STFU
