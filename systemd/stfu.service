@@ -10,7 +10,7 @@ Requires=netcheck.service
 Type=simple
 Restart=on-failure
 RestartSec=3
-RestartPreventExitStatus=255 254 253 251 
+RestartPreventExitStatus=254 253 251 
 StandardOutput=null
 WorkingDirectory=/opt/STFU
 Environment=STFU_LOG=/var/log/dvswitch
@@ -23,7 +23,7 @@ KillMode=process
 [Install]
 WantedBy=multi-user.target
 
-# 255 server timeout
+
 # 254 Fatal error
 # 253 ini parse errors
 
